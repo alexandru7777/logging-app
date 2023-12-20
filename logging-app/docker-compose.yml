@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "3000:3000"
+    volumes:
+      - app-data:/var/lib/client
+    networks:
+      - app-network
+    restart: on-failure
+    logging:
+      driver: json-file
+      options: 
+        max-size: "100m"
+        max-file: "10"
+    
+  node-app:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - node-data:/var/lib/backend
+    networks:
+      - app-network
+    depends_on:
+      - frontend
+    restart: on-failure
+    logging:
+      driver: json-file
+      options: 
+        max-size: "100m"
+        max-file: "10"
+    
+
+volumes:
+  app-data:
+  node-data:
+
+networks:
+  app-network:
+
