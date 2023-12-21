@@ -3,11 +3,6 @@
   become: yes
 
   tasks:
-    - name: Check Python version
-      command: python --version
-      register: python_version
-      failed_when: "'Python 2.7' not in python_version.stdout"
-
     - name: Ensure Docker is installed
       package:
         name: docker
