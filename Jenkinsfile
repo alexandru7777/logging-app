@@ -22,7 +22,7 @@ pipeline {
 
                     
                     // Build and deploy using Docker Compose
-                    sh 'ansible-playbook -i inventory.ini deploy.yml'
+                    sh 'sudo ansible-playbook -i inventory.ini deploy.yml'
                     }
 
                 }
