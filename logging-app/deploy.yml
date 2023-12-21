@@ -11,7 +11,7 @@
     - name: Copy application files to remote
       synchronize:
         src: /var/lib/jenkins/workspace/logg-app/logging-app
-        dest: /var/lib/deployed_app
+        dest: /var/lib/deployed_app/logging-app
 
 
     - name: Deploy application using Docker Compose
