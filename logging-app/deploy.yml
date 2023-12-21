@@ -20,6 +20,12 @@
         src: /var/lib/jenkins/workspace/logg-app/logging-app
         dest: /var/lib/deployed_app
 
+    - name: Copy .env file from jenkins
+      copy:
+        src: /var/lib/jenkins/env/.env
+        dest: /var/lib/deployed_app/logging-app/
+
+
     - name: Deploy application using Docker Compose
       shell: docker-compose -f docker-compose.yml up --build -d
       args:
