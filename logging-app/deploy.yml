@@ -10,5 +10,4 @@
 
     - name: Deploy application using Docker Compose
       shell: docker-compose -f docker-compose.yml up --build -d
-      args:
-        chdir: ./logging-app/docker-compose.yml
+
