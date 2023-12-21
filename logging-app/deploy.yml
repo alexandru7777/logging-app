@@ -8,11 +8,17 @@
         name: docker
         state: present
       
+    - name: Create destination directory
+      file:
+        path: /var/lib/deployed_app/logging-app
+        state: directory
+        mode: '0755'
+
+      
     - name: Copy application files to remote
       synchronize:
         src: /var/lib/jenkins/workspace/logg-app/logging-app
         dest: /var/lib/deployed_app/logging-app
-
 
     - name: Deploy application using Docker Compose
       shell: docker-compose -f docker-compose.yml up --build -d
