@@ -16,11 +16,15 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 script {
-                    // Load environment variables from the credentials
+                    dir('logging-app') {
+                 // Load environment variables from the credentials
                     sh 'echo $MY_SECRET_ENV > .env'
 
+                    
                     // Build and deploy using Docker Compose
                     sh 'ansible-playbook -i inventory.ini deploy.yml'
+                    }
+
                 }
             }
         }
