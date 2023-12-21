@@ -7,7 +7,15 @@
       package:
         name: docker
         state: present
+      
+    - name: Copy application files to remote
+      synchronize:
+        src: /var/lib/jenkins/workspace/logg-app/logging-app
+        dest: /var/lib/deployed_app
+
 
     - name: Deploy application using Docker Compose
       shell: docker-compose -f docker-compose.yml up --build -d
+      args:
+        chdir: /var/lib/deployed_app/logging-app/
 
