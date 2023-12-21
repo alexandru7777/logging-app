@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Check Python version
+      command: python --version
+      register: python_version
+      failed_when: "'Python 2.7' not in python_version.stdout"
+
+    - name: Ensure Docker is installed
+      package:
+        name: docker
+        state: present
+
+    - name: Deploy application using Docker Compose
+      shell: docker-compose -f docker-compose.yml up --build -d
+      args:
+        chdir: ./logging-app/docker-compose.yml

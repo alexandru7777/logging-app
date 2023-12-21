@@ -20,7 +20,7 @@ pipeline {
                     sh 'echo $MY_SECRET_ENV > .env'
 
                     // Build and deploy using Docker Compose
-                    sh 'docker-compose up --build -d'
+                    sh 'ansible-playbook -i inventory.ini deploy.yml'
                 }
             }
         }
