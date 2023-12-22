@@ -33,3 +33,32 @@ UI/UX:
     + Add better UI for filtering + number pages;
     + Add export to excel option (create a microservice)
     + 
+
+
+## 21.12.2023
+
+Error now appears to be manifasting because of the dockerfiles especially the frontend so something must be revised into docker-compose;
+So we have the error and the dockerfiles that need to be adjust in rest all services are working and ansible is successfully reaching the server;
+
+SOLUTION: fix the files and retry deployment;
+
+$ yum remove docker \
+  docker-client \
+  docker-client-latest \
+  docker-common \
+  docker-latest \
+  docker-latest-logrotate \
+  docker-logrotate \
+  docker-engine
+$ yum install -y yum-utils
+$ yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+$ yum install docker-ce docker-ce-cli containerd.io
+$ systemctl start docker
+$ systemctl enable docker
+
+-- reinstall docker properly for centos...
+
+CREATE SETUP SCRIPT FOR ENV NEXT TIME
+

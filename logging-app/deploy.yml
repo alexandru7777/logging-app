@@ -3,10 +3,10 @@
   become: yes
 
   tasks:
-    - name: Ensure Docker is installed
-      package:
-        name: docker
-        state: present
+    # - name: Ensure Docker is installed
+    #   package:
+    #     name: docker
+    #     state: present
       
     - name: Create destination directory
       file:
