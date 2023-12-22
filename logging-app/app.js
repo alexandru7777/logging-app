@@ -11,9 +11,16 @@ const app = express();
 
 
 const { connectDB } = require('./db');
+const ip = process.env.IP;
 app.use(cors({
-    origin: 'http://localhost:3000'
-
+  origin: (origin, callback) => {
+      const allowedOrigins = [`http://${ip}:3000`, `http://${ip}`];
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+      } else {
+          callback(new Error('Not allowed by CORS'));
+      }
+  }
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
