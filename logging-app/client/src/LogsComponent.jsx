@@ -43,7 +43,7 @@ function LogsComponent() {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch('http://192.168.0.145:5000/logs', {
+        const response = await fetch('http://192.168.56.12:5000/logs', {
           method: 'GET',  
           headers: {
             'Authorization': `Bearer ${token}`,
