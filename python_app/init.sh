@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE="/app/logs.py"
+FILE="/usr/src/logs.py"
 
 # Check if program exists in the container
 if [ -f "$FILE" ]; then
