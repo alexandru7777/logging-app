@@ -3,12 +3,11 @@ FROM debian:latest
 
 WORKDIR /usr/src/
 
-# Install Python and cron, then clean up
+# Install Python 3 and cron, then clean up
 RUN apt-get update && \
-    apt-get install -y python2.7 cron && \
+    apt-get install -y python3 cron && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
 
 # Add your scripts to the container
 COPY logs.py /usr/src/logs.py
@@ -16,6 +15,7 @@ COPY init.sh /usr/src/init.sh
 
 # Make sure the scripts are executable
 RUN chmod +x /usr/src/logs.py /usr/src/init.sh
+
 # Create a json file inside the container
 RUN touch /usr/src/logs.json
 
