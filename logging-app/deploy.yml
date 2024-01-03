@@ -18,7 +18,13 @@
     - name: Copy application files to remote
       synchronize:
         src: /var/lib/jenkins/workspace/logg-app/logging-app
-        dest: /var/lib/deployed_app
+        dest: /var/lib/deployed_app/
+
+    - name: Copy python application
+      synchronize:
+        src: /var/lib/jenkins/workspace/logg-app/python_app
+        dest: /var/lib/deployed_app/
+ 
 
     - name: Copy .env file from jenkins
       copy:
