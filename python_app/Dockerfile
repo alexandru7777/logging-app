@@ -21,7 +21,9 @@ RUN chmod +x /usr/src/logs.py /usr/src/init.sh
 RUN touch /usr/src/logs.json
 
 # Add a cron job
-RUN echo "*/10 * * * * root sh /usr/src/init.sh >> /var/log/cron.log 2>&1" >> /etc/cron.d/logg_app
+
+RUN echo "*/10 * * * * root sh /usr/src/start.sh >> /var/log/cron.log 2>&1" >> /etc/cron.d/logg_app
+
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/logg_app
