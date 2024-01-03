@@ -6,7 +6,7 @@ WORKDIR /usr/src/
 # Install Python 3 and cron, then clean up
 RUN apt-get update && \
     apt-get install -y python3 cron && \
-    apt-get install -y curl && \
+    apt-get install -y curl vim && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
