@@ -31,9 +31,9 @@
         src: /var/lib/jenkins/env/.env
         dest: /var/lib/deployed_app/logging-app/
 
-    # - name: Move python app into logging app
-    #   shell: mv /var/lib/deployed_app/python_app /var/lib/deployed_app/logging-app/
-
+    - name: Move python app into logging app
+      shell: cp /var/lib/deployed_app/python_app /var/lib/deployed_app/logging-app/
+      ignore_errors: yes
 
     - name: Deploy application using Docker Compose
       shell: docker-compose -f docker-compose.yml up --build -d

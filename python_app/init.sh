@@ -1,20 +1,5 @@
 #!/bin/bash
 
-FILE="/usr/src/logs.py"
-
-# Check if program exists in the container
-if [ -f "$FILE" ]; then
-    echo "File Exists, executing Python script"
-    python "$FILE"
-    if [ "$?" -ne 0 ]; then
-        echo "Python script execution failed."
-        exit 1
-    fi
-else
-    echo "File is missing, please check destination"
-    exit 1
-fi
-
 echo "Executing POST request of logs file"
 sleep 2
 
