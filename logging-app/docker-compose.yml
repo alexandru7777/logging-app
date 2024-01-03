@@ -40,10 +40,22 @@ services:
         max-size: "100m"
         max-file: "10"
     
+  python_app:
+    build:
+      context: ../python_app/
+      dockerfile: Dockerfile
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - python_data:/var/lib/python-app
+    restart: on-failure
+
 
 volumes:
   app-data:
   node-data:
+  python_data:
 
 networks:
   app-network:
