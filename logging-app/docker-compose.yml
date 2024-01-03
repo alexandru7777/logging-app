@@ -45,8 +45,7 @@ services:
       context: ./python_app/
       dockerfile: Dockerfile
     ports:
-      - "443:443"
-      - "80:80"
+      - "8080:80"
     volumes:
       - python_data:/var/lib/python-app # Inside container
     restart: on-failure
