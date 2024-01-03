@@ -4,14 +4,10 @@ echo "Running on ${PATH} path"
 
 sleep 1
 
-cd /usr/src/
+python3 /usr/src/logs.py
 
-echo "New ${PATH} executed"
+sleep 7
 
-python3 logs.py
-
-sleep 2
-
-sh init.sh
+sh /usr/src/init.sh
 
 echo "Commands ran successfully"
