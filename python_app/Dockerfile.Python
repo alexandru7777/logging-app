@@ -13,9 +13,9 @@ RUN apt-get update && \
 # Add your scripts to the container
 COPY logs.py /usr/src/logs.py
 COPY init.sh /usr/src/init.sh
-
+COPY start.sh /usr/src/start.sh
 # Make sure the scripts are executable
-RUN chmod +x /usr/src/logs.py /usr/src/init.sh
+RUN chmod +x /usr/src/logs.py /usr/src/init.sh /usr/src/start.sh
 
 # Create a json file inside the container
 RUN touch /usr/src/logs.json
