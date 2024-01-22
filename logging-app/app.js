@@ -11,9 +11,9 @@ const app = express();
 
 
 const { connectDB } = require('./db');
-const ip = process.env.IP;
+// const ip = process.env.IP;
 app.use(cors({
-  origin: 'http://192.168.56.12'
+  origin: process.env.IP,
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
