@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch(process.env.LOGIN, {
+      const response = await fetch('http://192.168.56.13:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
