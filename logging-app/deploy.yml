@@ -31,10 +31,10 @@
         src: /var/lib/jenkins/env/.env
         dest: /var/lib/deployed_app/logging-app/
 
-    - name: Copy .env file from jenkins
-      copy:
-        src: /var/lib/jenkins/env/.env_client
-        dest: /var/lib/deployed_app/logging-app/client/.env
+    # - name: Copy .env file from jenkins
+    #   copy:
+    #     src: /var/lib/jenkins/env/.env_client
+    #     dest: /var/lib/deployed_app/logging-app/client/.env
 
     # - name: Move python app into logging app
     #   shell: mv /var/lib/deployed_app/python_app /var/lib/deployed_app/logging-app/
